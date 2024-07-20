@@ -15,7 +15,7 @@ const App = () => {
   const [btnText, setBtnText] = useState("Start");
   const [isRunning, setIsRunning] = useState(false);
   const [playerName, setPlayerName] = useState('');
-  const [toggleBtnName, setToggleBtnName] = useState("");
+  const [toggleBtnName, setToggleBtnName] = useState("random");
 
   useEffect(() => {
     let interval;
@@ -160,14 +160,6 @@ const App = () => {
 
   return (
     <div className="container game-container">
-      <p className='heading-label'>Set Intial Loading </p>
-      <div className="controls">
-        <input type="radio" onClick={handleRandomStart} className="btn-check" name="random" id="random" autoComplete="off" checked={toggleBtnName === "random" ? true : false} onChange={handleToggleChange} />
-        <label className="btn btn-outline-success rand-name-label" htmlFor="random">Random</label>
-
-        <input type="radio" onClick={handleNameStart} className="btn-check" name="yourname" id="yourname" autoComplete="off" checked={toggleBtnName === "yourname" ? true : false} onChange={handleToggleChange} />
-        <label className="btn btn-outline-danger rand-name-label" htmlFor="yourname">Your Name</label>
-      </div>
       <div>
         <input
           type="text"
@@ -178,6 +170,15 @@ const App = () => {
         />
         {error && <p className='error-msg'>{error}</p>}
       </div>
+      <p className='heading-label'>Set Intial Loading </p>
+      <div className="controls">
+        <input type="radio" onClick={handleRandomStart} className="btn-check" name="random" id="random" autoComplete="off" checked={toggleBtnName === "random" ? true : false} onChange={handleToggleChange} />
+        <label className="btn btn-outline-success rand-name-label" htmlFor="random">Random</label>
+
+        <input type="radio" onClick={handleNameStart} className="btn-check" name="yourname" id="yourname" autoComplete="off" checked={toggleBtnName === "yourname" ? true : false} onChange={handleToggleChange} />
+        <label className="btn btn-outline-danger rand-name-label" htmlFor="yourname">Your Name</label>
+      </div>
+
       {
         btnText === "Start" ? <button type="button" onClick={handleStart} className="btn btn-primary control-btn">Start</button> :
           <button type="button" onClick={handleStop} className="btn btn-primary control-btn">Stop</button>
