@@ -130,10 +130,17 @@ const App = () => {
   const handleNameChange = (event) => {
     const name = event.target.value.slice(0, 25);
     setPlayerName(name);
+    if (toggleBtnName === "yourname") {
+      setGrid(generateInitialGrid); // Resets grid with initial state
+      if (name) {
+        setGrid(generateGridFromName(name)); // Generate grid from the sliced name
+      }
+    }
     //setToggleBtnName("");
     if (name !== "") {
       setError("");
     }
+
   };
   const handleToggleChange = (event) => {
     console.log("handleToggleChange");
