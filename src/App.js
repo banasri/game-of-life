@@ -15,7 +15,7 @@ const App = () => {
   const [btnText, setBtnText] = useState("Start");
   const [isRunning, setIsRunning] = useState(false);
   const [playerName, setPlayerName] = useState('');
-  const [toggleBtnName, setToggleBtnName] = useState("random");
+  const [toggleBtnName, setToggleBtnName] = useState("");
 
   useEffect(() => {
     let interval;
@@ -130,7 +130,7 @@ const App = () => {
   const handleNameChange = (event) => {
     const name = event.target.value.slice(0, 25);
     setPlayerName(name);
-    setToggleBtnName("");
+    //setToggleBtnName("");
     if (name !== "") {
       setError("");
     }
